@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/grades_semester_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:shrinkColumns="3"
+        android:stretchColumns="3">
+
+    <TableRow
+            android:id="@+id/grades_semester_heading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/gs_heading_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@string/gs_heading_id"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/gs_heading_cid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@string/gs_heading_course_code"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/gs_heading_cname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@string/gs_heading_course_name"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/gs_heading_credits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="4"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@string/gs_heading_credits"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/gs_heading_mark_att"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="5"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@string/gs_heading_mark_att"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/gs_heading_mark_mt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="6"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@string/gs_heading_mark_mt"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/gs_heading_mark_ex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="7"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@string/gs_heading_mark_ex"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        <TextView
+                android:id="@+id/gs_heading_mark_fn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="8"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@string/gs_heading_mark_fn"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+    </TableRow>
+</TableLayout>

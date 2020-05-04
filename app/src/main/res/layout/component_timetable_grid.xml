@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+                name="dateToday"
+                type="String" />
+    </data>
+
+    <merge>
+
+        <TextView
+                android:id="@+id/ttd_grid_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="4dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="4dp"
+                android:text="@{dateToday}" />
+
+<!--        <androidx.gridlayout.widget.GridLayout-->
+<!--                android:id="@+id/ttd_grid"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="12dp"-->
+<!--                android:paddingTop="4dp"-->
+<!--                android:paddingRight="12dp"-->
+<!--                android:paddingBottom="4dp"-->
+<!--                app:columnCount="2"-->
+<!--                app:orientation="horizontal" />-->
+        <LinearLayout
+                android:id="@+id/ttd_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:paddingTop="4dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="4dp"
+                android:orientation="vertical"
+                app:orientation="horizontal"></LinearLayout>
+    </merge>
+</layout>

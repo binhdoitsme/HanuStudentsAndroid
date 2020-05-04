@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.hanu.students.util.converter.DateConverter" />
+
+        <variable
+                name="timetable"
+                type="com.hanu.students.model.TimetableUnit" />
+    </data>
+
+    <merge>
+
+        <TextView
+                android:id="@+id/class_ttu_datetime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{DateConverter.from(timetable.dayOfWeek) + `, ` + timetable.timeStart.substring(0, 5) + `-` + timetable.timeEnd.substring(0, 5)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+                android:id="@+id/class_ttu_venue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{timetable.venue}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+                android:id="@+id/class_ttu_instructor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Giảng viên: ` + timetable.instructor}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+                android:id="@+id/class_ttu_gmeet_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="all|web"
+                android:text="@{`Online link: ` + timetable.gmeetUrl}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <Button
+                android:id="@+id/class_set_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/label_set_alarm" />
+    </merge>
+</layout>

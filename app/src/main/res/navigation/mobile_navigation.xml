@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mobile_navigation"
+        app:startDestination="@+id/nav_home">
+
+    <fragment
+            android:id="@+id/nav_home"
+            android:name="com.hanu.students.ui.fragment.DashboardFragment"
+            android:label="@string/menu_dashboard"
+            tools:layout="@layout/fragment_home">
+        <action
+                android:id="@+id/action_nav_home_to_nav_settings"
+                app:destination="@id/nav_settings" />
+        <action
+                android:id="@+id/action_nav_home_to_nav_timetable"
+                app:destination="@id/nav_timetable" />
+        <action
+                android:id="@+id/action_nav_home_to_nav_grades"
+                app:destination="@id/nav_marks" />
+        <action
+                android:id="@+id/action_nav_home_to_nav_tuition_fee"
+                app:destination="@id/nav_tuition_fee" />
+        <action
+                android:id="@+id/action_nav_home_to_nav_logout"
+                app:destination="@id/nav_logout" />
+        <action
+                android:id="@+id/action_nav_home_to_nav_support"
+                app:destination="@id/nav_support" />
+        <action
+                android:id="@+id/action_nav_home_to_registrationFragment"
+                app:destination="@id/nav_course_reg" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/nav_timetable"
+            android:name="com.hanu.students.ui.fragment.TimetableFragment"
+            android:label="@string/fragment_timetable"
+            tools:layout="@layout/fragment_timetable">
+        <action
+                android:id="@+id/action_nav_timetable_to_nav_course_details"
+                app:destination="@id/nav_course_details"
+                app:enterAnim="@anim/fragment_open_enter"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"
+                app:popUpTo="@id/nav_timetable" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/nav_settings"
+            android:name="com.hanu.students.ui.fragment.SettingsFragment"
+            android:label="@string/menu_settings"
+            tools:layout="@layout/fragment_settings"></fragment>
+    <fragment
+            android:id="@+id/nav_course_details"
+            android:name="com.hanu.students.ui.fragment.ClassDetailsFragment"
+            android:label="{label}"
+            tools:layout="@layout/fragment_class_details">
+        <argument
+                android:name="label"
+                app:argType="string" />
+        <argument
+                android:name="classCode"
+                android:defaultValue="61FIT3BDM-04"
+                app:argType="string" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/nav_marks"
+            android:name="com.hanu.students.ui.fragment.GradesFragment"
+            android:label="@string/menu_marks"></fragment>
+
+    <fragment
+            android:id="@+id/nav_tuition_fee"
+            android:name="com.hanu.students.ui.fragment.TuitionFragment"
+            android:label="@string/menu_tuition_fee"></fragment>
+
+    <fragment
+            android:id="@+id/nav_profile"
+            android:name="com.hanu.students.ui.fragment.ProfileFragment"
+            android:label="@string/menu_profile"></fragment>
+
+    <fragment
+            android:id="@+id/nav_support"
+            android:name="com.hanu.students.ui.fragment.SupportFragment"
+            android:label="@string/menu_support"></fragment>
+
+    <fragment
+            android:id="@+id/nav_logout"
+            android:name="com.hanu.students.ui.fragment.LogoutPendingFragment"
+            android:label="@string/menu_logout">
+        <action
+                android:id="@+id/action_nav_logout_to_nav_activity_login"
+                app:destination="@id/nav_activity_login" />
+    </fragment>
+
+    <activity
+            android:id="@+id/nav_activity_login"
+            android:name="com.hanu.students.activity.LoginActivity"
+            android:label="@string/menu_logout">
+        <argument
+                android:name="isLoggingOut"
+                android:defaultValue="true"
+                app:argType="boolean" />
+    </activity>
+    <fragment
+            android:id="@+id/nav_course_reg"
+            android:name="com.hanu.students.ui.fragment.RegistrationFragment"
+            android:label="@string/menu_course_reg" />
+</navigation>

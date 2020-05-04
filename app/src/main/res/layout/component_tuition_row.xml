@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+                name="tuition"
+                type="com.hanu.students.model.TuitionFee" />
+
+        <variable
+                name="rowId"
+                type="String" />
+    </data>
+
+    <merge>
+
+        <TextView
+                android:id="@+id/tuition_row_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@{rowId}"
+                android:textColor="@color/design_default_color_on_secondary" />
+
+        <TextView
+                android:id="@+id/tuition_row_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@{tuition.courseName}"
+                android:textColor="@color/design_default_color_on_secondary" />
+
+        <TextView
+                android:id="@+id/tuition_row_cred_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right|end"
+                android:padding="4dp"
+                android:text="@{String.valueOf(tuition.creditCount) + `TC`}"
+                android:textColor="@color/design_default_color_on_secondary" />
+
+        <TextView
+                android:id="@+id/tuition_row_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@{String.format(`%,d`, tuition.value)}"
+                android:textColor="@color/design_default_color_on_secondary" />
+
+    </merge>
+</layout>

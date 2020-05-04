@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+                name="classInfo"
+                type="com.hanu.students.model.ClassInformation" />
+        <variable
+                name="timetableLabel"
+                type="String" />
+    </data>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp">
+
+        <LinearLayout
+                android:id="@+id/class_inf_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/class_detail_course_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{classInfo.courseName}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                    android:id="@+id/class_detail_class_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/label_course_code.concat(` `).concat(classInfo.classCode)}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                    android:id="@+id/class_detail_credit_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Số tín chỉ: ` + classInfo.creditCount}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/darker_gray" />
+
+            <TextView
+                    android:id="@+id/class_detail_timetable_hardcodetext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="auto"
+                    android:text="@{timetableLabel}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

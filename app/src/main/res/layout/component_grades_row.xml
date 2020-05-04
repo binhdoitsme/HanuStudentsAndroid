@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+                name="gradesReport"
+                type="com.hanu.students.model.Grades" />
+        <variable
+                name="rowId"
+                type="Integer" />
+    </data>
+    <merge
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/gs_row_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:background="@drawable/border"
+                android:gravity="right|end"
+                android:padding="4dp"
+                android:text="@{String.valueOf(rowId)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp" />
+
+        <TextView
+                android:id="@+id/gs_cid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{gradesReport.courseCode}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp" />
+
+        <TextView
+                android:id="@+id/gs_cname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{gradesReport.courseName}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp" />
+
+        <TextView
+                android:id="@+id/gs_credits"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="4"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{String.valueOf(gradesReport.creditCount)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp" />
+
+        <TextView
+                android:id="@+id/gs_mark_att"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="5"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{String.valueOf(gradesReport.attendance)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp" />
+
+        <TextView
+                android:id="@+id/gs_mark_mt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="6"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{String.valueOf(gradesReport.midterm)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp" />
+
+        <TextView
+                android:id="@+id/gs_mark_ex"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="7"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{String.valueOf(gradesReport.exam)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp" />
+
+        <TextView
+                android:id="@+id/gs_mark_fn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="8"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{String.valueOf(gradesReport.aggregate)}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="14sp" />
+    </merge>
+</layout>

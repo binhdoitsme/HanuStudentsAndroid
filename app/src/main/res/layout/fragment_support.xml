@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hỗ trợ"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/design_default_color_on_secondary" />
+
+    <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="Dòng chữ này ở đây để nhắc nhở cho bạn rằng không có phần hỗ trợ riêng trong ứng dụng này! Cảm ơn bạn đã xem!" />
+
+    <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Về tác giả"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/design_default_color_on_secondary" />
+
+    <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="Đỗ Hải Bình là sinh viên khoa Công nghệ Thông tin, K17, Đại học Hà Nội. Là một người đam mê lập trình, Bình dành nhiều thời gian để tìm hiểu những kiến thức về lập trình trong thực tiễn để áp dụng vào các dự án nhỏ của mình." />
+
+</LinearLayout>

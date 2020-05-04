@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+                name="student"
+                type="com.hanu.students.model.Student" />
+        <variable
+                name="rowId"
+                type="Integer" />
+    </data>
+    <merge>
+
+        <TextView
+                android:id="@+id/sl_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:background="@drawable/border"
+                android:gravity="right|end"
+                android:padding="4dp"
+                android:text="@{String.valueOf(rowId)}"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+        <TextView
+                android:id="@+id/sl_sid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{String.valueOf(student.id)}"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+        <TextView
+                android:id="@+id/sl_sname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{student.displayName}"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+        <TextView
+                android:id="@+id/sl_class"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="4"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{student.className}"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+        <TextView
+                android:id="@+id/sl_sfaculty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="5"
+                android:background="@drawable/border"
+                android:padding="4dp"
+                android:text="@{student.faculty}"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+    </merge>
+</layout>
