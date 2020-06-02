@@ -1,6 +1,4 @@
-package com.hanu.students.ui.fragment.adapter;
-
-import android.os.Bundle;
+package com.hanu.students.ui.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

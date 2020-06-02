@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.hanu.students.R;
-import com.hanu.students.ui.fragment.adapter.TuitionFragmentAdapter;
+import com.hanu.students.ui.adapter.TuitionFragmentAdapter;
 import com.hanu.students.viewmodel.TuitionViewModel;
 
 import java.util.ArrayList;
@@ -84,9 +83,18 @@ public class TuitionFragment extends Fragment implements View.OnClickListener, D
     public void onClick(View v) {
         Dialog loading = showLoading(getContext());
         loading.show();
-        viewModel.addData(getArguments().getParcelableArrayList("tuitionList"));
-        showSuccess(getContext(), "Đóng học phí thành công!");
-        loading.dismiss();
+        String authToken = getActivity().getIntent().getExtras().getString("authToken");
+        viewModel.addData(getArguments().getParcelableArrayList("tuitionList"), authToken, 20192)
+                .observe(getViewLifecycleOwner(), aBoolean -> {
+                    if (aBoolean) {
+                        showSuccess(getContext(), "Đóng học phí thành công!");
+                        loading.dismiss();
+                    } else {
+                        showSuccess(getContext(), "Đóng học phí thất bại!");
+                        loading.dismiss();
+                    }
+                });
+
     }
 
     private Dialog showLoading(Context context) {

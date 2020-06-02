@@ -55,7 +55,8 @@ public interface ApiConnector {
     @Headers({"Accept:*/*"})
     @POST(PREFIX + "/tuition")
     Call<ResponseBody> postTuitionFee(@Body List<TuitionFee> tuitionList,
-                                      @Query("authToken") String authToken);
+                                      @Query("authToken") String authToken,
+                                      @Query("semester") int semester);
 
     @Headers({"Accept:*/*"})
     @GET(PREFIX + "/profile")

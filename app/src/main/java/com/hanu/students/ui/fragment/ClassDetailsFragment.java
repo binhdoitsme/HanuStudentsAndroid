@@ -15,7 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.hanu.students.R;
 import com.hanu.students.model.Student;
-import com.hanu.students.ui.fragment.adapter.ClassDetailsFragmentAdapter;
+import com.hanu.students.ui.adapter.ClassDetailsFragmentAdapter;
 import com.hanu.students.viewmodel.ClassInformationViewModel;
 
 import java.util.ArrayList;

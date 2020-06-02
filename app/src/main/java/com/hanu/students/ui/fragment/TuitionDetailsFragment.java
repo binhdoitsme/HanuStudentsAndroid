@@ -39,7 +39,8 @@ public class TuitionDetailsFragment extends Fragment {
 
     private void addEventListenerOnPayFeeButton() {
         Button payTuitionBtn = getView().findViewById(R.id.btn_pay_tuition);
-        payTuitionBtn.setOnClickListener((TuitionFragment)getParentFragment());
+        if (payTuitionBtn != null)
+            payTuitionBtn.setOnClickListener((TuitionFragment)getParentFragment());
     }
 
     private void renderTuitionFeeList() {
@@ -48,6 +49,8 @@ public class TuitionDetailsFragment extends Fragment {
 
         Bundle bundle = getParentFragment().getArguments();
         List<TuitionFee> tuitionList = bundle.getParcelableArrayList("tuitionList");
+
+        System.out.println(tuitionList);
 
         int rowId = 0;
         long aggregateVal = 0;
@@ -81,6 +84,9 @@ public class TuitionDetailsFragment extends Fragment {
             noMoreTuitionToPayText.setLayoutParams(new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             container.addView(noMoreTuitionToPayText);
+            ViewGroup viewGroup = (ViewGroup) getView();
+            viewGroup.removeView(viewGroup.findViewById(R.id.tuition_label_summary));
+            viewGroup.removeView(viewGroup.findViewById(R.id.btn_pay_tuition));
         }
     }
 }

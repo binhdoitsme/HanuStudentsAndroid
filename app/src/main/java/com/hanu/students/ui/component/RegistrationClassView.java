@@ -3,6 +3,7 @@ package com.hanu.students.ui.component;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.hanu.students.R;
 import com.hanu.students.databinding.ComponentRegistrationChoiceRowBinding;
 import com.hanu.students.model.RegistrationClass;
 import com.hanu.students.model.TimetableUnit;
+import com.hanu.students.ui.wrapper.RegistrationClassWrapper;
 import com.hanu.students.util.converter.DateConverter;
 
 import java.util.LinkedList;
@@ -26,28 +28,29 @@ public class RegistrationClassView extends ConstraintLayout {
     private static final int TO_BE_SELECTED = Color.parseColor("#FFA000");
     private static final int INITIAL_UNSELECTED = Color.parseColor("#FAFAFA");
 
+    private Runnable onClassChosenHandler;
+
     private ComponentRegistrationChoiceRowBinding binder;
-    private boolean checked;
-    private boolean initialState;
     private Button selectButton;
+    private boolean checked;
 
     public RegistrationClassView(Context context) {
         super(context);
         binder = DataBindingUtil.inflate(LayoutInflater.from(context),
-                                R.layout.component_registration_choice_row, this, true);
+                R.layout.component_registration_choice_row, this, true);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                                ViewGroup.LayoutParams.MATCH_PARENT));
+                ViewGroup.LayoutParams.MATCH_PARENT));
         selectButton = findViewById(R.id.registration_choose_button);
-
     }
 
-    public RegistrationClassView setRegistrationClass(RegistrationClass registrationClass) {
+    public RegistrationClassView setRegistrationClass(RegistrationClassWrapper registrationClassWrapper) {
+        RegistrationClass registrationClass = registrationClassWrapper.getRegistrationClass();
         binder.setRegistrationChoice(registrationClass);
         ViewGroup timetableContainer = findViewById(R.id.registration_time_text_container);
+        timetableContainer.removeAllViews();
 
         /////////////////////
-        List<TimetableUnit> timetableUnits = new LinkedList<>();
-        timetableUnits.addAll(registrationClass.getTimetables());
+        List<TimetableUnit> timetableUnits = new LinkedList<>(registrationClass.getTimetables());
         //////////////////////
 
         for (TimetableUnit t : timetableUnits) {
@@ -55,20 +58,20 @@ public class RegistrationClassView extends ConstraintLayout {
             textView.setText(DateConverter.from(t.getDayOfWeek()) + ", " + t.getTimeStart().substring(0, 5) + "-" + t.getTimeEnd().substring(0, 5));
             timetableContainer.addView(textView);
         }
+
+        initViewState(registrationClassWrapper.getInitialState(),
+                        registrationClassWrapper.getCurrentState());
+        setDisable(registrationClassWrapper.isDisabled());
+
+        if (registrationClassWrapper.isDisabled()) {
+            selectButton.setText("Trùng");
+        } else {
+            selectButton.setText(checked ? "Hủy" : "Chọn");
+        }
         return this;
     }
 
-    public RegistrationClass getRegistrationClass() {
-        return binder.getRegistrationChoice();
-    }
-
-    public RegistrationClassView setOnClassChosen(OnClickListener onClassChosenListener) {
-        binder.setOnClassChosen(onClassChosenListener);
-        return this;
-    }
-
-    public void setChecked(boolean checked) {
-        this.checked = checked;
+    private void initViewState(boolean initialState, boolean checked) {
         if (initialState) {
             if (!checked) {
                 setBackgroundColor(TO_BE_DELETED);
@@ -82,16 +85,17 @@ public class RegistrationClassView extends ConstraintLayout {
                 setBackgroundColor(INITIAL_UNSELECTED);
             }
         }
-        selectButton.setText(this.checked ? "Hủy" : "Chọn");
+//        selectButton.setText(checked ? "Hủy" : "Chọn");
     }
 
-    public RegistrationClassView setInitialState(final boolean initialState) {
-        this.initialState = initialState;
-        setChecked(initialState);
+    public RegistrationClassView setOnClassChosen(Runnable onClassChosenHandler) {
+        this.onClassChosenHandler = onClassChosenHandler;
+        binder.setOnClassChosen(v -> onClassChosenHandler.run());
         return this;
     }
 
-    public boolean isChecked() {
-        return checked;
+    public RegistrationClassView setDisable(boolean isDisabled) {
+        selectButton.setEnabled(!isDisabled);
+        return this;
     }
 }

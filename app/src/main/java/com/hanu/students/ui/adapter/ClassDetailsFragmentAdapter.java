@@ -1,4 +1,4 @@
-package com.hanu.students.ui.fragment.adapter;
+package com.hanu.students.ui.adapter;
 
 import android.os.Bundle;
 

@@ -1,4 +1,4 @@
-package com.hanu.students.ui.fragment.adapter;
+package com.hanu.students.ui.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,21 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hanu.students.model.RegistrationClass;
 import com.hanu.students.ui.component.RegistrationCourseView;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class RegistrationClassListFragmentAdapter extends RecyclerView.Adapter<RegistrationClassListFragmentAdapter.ViewHolder> {
+public class RegistrationCourseListFragmentAdapter extends RecyclerView.Adapter<RegistrationCourseListFragmentAdapter.ViewHolder> {
 
     private Map<String, List<RegistrationClass>> mDataset;
     private View.OnClickListener onChosenListener;
 
-    public RegistrationClassListFragmentAdapter(Map<String, List<RegistrationClass>> dataset) {
+    public RegistrationCourseListFragmentAdapter(Map<String, List<RegistrationClass>> dataset) {
         mDataset = dataset;
+        setHasStableIds(true);
     }
 
-    public RegistrationClassListFragmentAdapter setOnChosenListener(View.OnClickListener onChosenListener) {
+    public RegistrationCourseListFragmentAdapter setOnChosenListener(View.OnClickListener onChosenListener) {
         this.onChosenListener = onChosenListener;
         return this;
     }
@@ -60,4 +60,13 @@ public class RegistrationClassListFragmentAdapter extends RecyclerView.Adapter<R
         }
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 }

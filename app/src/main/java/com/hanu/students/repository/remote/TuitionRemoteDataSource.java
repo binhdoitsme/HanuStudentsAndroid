@@ -30,8 +30,7 @@ public class TuitionRemoteDataSource extends TwoWayRemoteDataSource<TuitionFee> 
                     data.setValue(new LinkedList<>());
                     return;
                 }
-                data.getValue().addAll(response.body());
-                data.setValue(data.getValue());
+                data.setValue(response.body());
             }
 
             @Override
@@ -55,8 +54,9 @@ public class TuitionRemoteDataSource extends TwoWayRemoteDataSource<TuitionFee> 
     @Override
     public LiveData<Boolean> addList(List<TuitionFee> items, Object... args) {
         MutableLiveData<Boolean> liveData = new MutableLiveData<>();
-        String authToken = "auth";
-        super.getConnector().postTuitionFee(items, authToken).enqueue(new Callback<ResponseBody>() {
+        String authToken = (String)args[0];
+        int semester = (Integer)args[1];
+        super.getConnector().postTuitionFee(items, authToken, semester).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 switch (response.code()) {

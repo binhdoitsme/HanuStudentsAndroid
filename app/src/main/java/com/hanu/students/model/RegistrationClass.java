@@ -10,8 +10,9 @@ import java.util.List;
 import lombok.Getter;
 import lombok.ToString;
 
-@Getter @ToString
-public class RegistrationClass implements Parcelable {
+@Getter
+@ToString
+public class RegistrationClass implements Parcelable, Comparable {
     private final String courseCode;
     private final String courseName;
     private final String classCode;
@@ -77,5 +78,13 @@ public class RegistrationClass implements Parcelable {
         dest.writeInt(maxSlots);
         dest.writeInt(semester);
         dest.writeTypedList(timetables);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        RegistrationClass other = ((RegistrationClass) o);
+        if (courseCode.equals(other.courseCode))
+            return classCode.compareTo(other.classCode);
+        return courseCode.compareTo(other.courseCode);
     }
 }
