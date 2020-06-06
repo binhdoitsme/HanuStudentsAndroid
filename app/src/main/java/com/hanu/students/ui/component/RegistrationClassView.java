@@ -66,7 +66,7 @@ public class RegistrationClassView extends ConstraintLayout {
         if (registrationClassWrapper.isDisabled()) {
             selectButton.setText("Trùng");
         } else {
-            selectButton.setText(checked ? "Hủy" : "Chọn");
+            selectButton.setText(registrationClassWrapper.getCurrentState() ? "Hủy" : "Chọn");
         }
         return this;
     }

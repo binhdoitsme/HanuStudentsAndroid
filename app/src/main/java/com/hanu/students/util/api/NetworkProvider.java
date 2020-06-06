@@ -23,7 +23,8 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 @Module
 public final class NetworkProvider {
 //    private static final String BASE_URL = "https://anypoint.mulesoft.com/";
-    private static final String BASE_URL = "https://10.0.2.2:5001/";
+//    private static final String BASE_URL = "https://10.0.2.2:5001/";
+    private static final String BASE_URL = "https://192.168.43.193:5001/";
 
     private static volatile NetworkProvider mInstance = null;
     private Retrofit retrofit;
