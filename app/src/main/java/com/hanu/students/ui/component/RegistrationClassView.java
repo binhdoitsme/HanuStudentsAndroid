@@ -52,6 +52,7 @@ public class RegistrationClassView extends ConstraintLayout {
         /////////////////////
         List<TimetableUnit> timetableUnits = new LinkedList<>(registrationClass.getTimetables());
         //////////////////////
+        // test github commit
 
         for (TimetableUnit t : timetableUnits) {
             TextView textView = new TextView(getContext());
